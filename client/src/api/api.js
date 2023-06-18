@@ -68,7 +68,7 @@ export const getAllNotes = async() => {
 
     } catch(err){
         console.error(err);
-        return {success: false};
+        return {success: false, status: err.message ? err.message : ''};
     }
 };
 

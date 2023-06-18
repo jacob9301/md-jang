@@ -25,6 +25,9 @@ function NotesBar() {
             const response = await getAllNotes();
             if (response.success) {
                 dispatch(fetchNotesSuccess(response.notes));
+            } else if (response.status == '403') {
+                navigate('/login');
+                dispatch(fetchNotesFailure());
             } else {
                 dispatch(fetchNotesFailure());
             }
