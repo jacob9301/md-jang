@@ -1,12 +1,9 @@
+import { post, postWithAuth, fetchWithAuth } from "./requests";
+
 export const login = async(user) => {
     try{
-        const response = await fetch("http://localhost:5000/login", {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        });
+        const url = "http://localhost:5000/login"
+        const response = await post(url, user);
 
         if (!response.ok) {
             throw new Error(response.status);
@@ -26,13 +23,8 @@ export const login = async(user) => {
 
 export const signup = async(user) => {
     try{
-        const response = await fetch("http://localhost:5000/signup", {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        });
+        const url = "http://localhost:5000/signup"
+        const response = await post(url, user);
 
         if (!response.ok) {
             throw new Error(response.status);
@@ -52,11 +44,8 @@ export const signup = async(user) => {
 
 export const getAllNotes = async() => {
     try {
-        const response = await fetch("http://localhost:5000/getallnotes",{
-            headers: {
-              'authorisation': ('Bearer ' + localStorage.getItem('accessToken'))
-            }
-        });
+        const url = "http://localhost:5000/getallnotes"
+        const response = await fetchWithAuth(url);
 
         if (!response.ok) {
             throw new Error(response.status);
@@ -75,14 +64,8 @@ export const getAllNotes = async() => {
 export const postNewNote = async(note) => {
 
     try {
-        const response = await fetch("http://localhost:5000/addnote", {
-            method: 'POST',
-            headers: {
-                'authorisation': ('Bearer ' + localStorage.getItem('accessToken')),
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(note)
-        });
+        const url = "http://localhost:5000/addnote";
+        const response = await postWithAuth(url, note);
 
         if (!response.ok) {
             throw new Error(response.status);
@@ -106,11 +89,7 @@ export const getCurrentNote = async(noteId) => {
     const url = `http://localhost:5000/getcurrentnote/${encodedId}`;
 
     try {
-        const response = await fetch(url,{
-            headers: {
-              'authorisation': ('Bearer ' + localStorage.getItem('accessToken'))
-            }
-        });
+        const response = await fetchWithAuth(url);
 
         if (!response.ok) {
             console.log(response.status);
@@ -130,14 +109,8 @@ export const getCurrentNote = async(noteId) => {
 export const updateNoteBody = async(note) => {
 
     try {
-        const response = await fetch("http://localhost:5000/updatenote", {
-            method: 'POST',
-            headers: {
-                'authorisation': ('Bearer ' + localStorage.getItem('accessToken')),
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(note)
-        });
+        const url = "http://localhost:5000/updatenote";
+        const response = await postWithAuth(url, note);
 
         if (!response.ok) {
             throw new Error(response.status);
