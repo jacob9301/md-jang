@@ -7,7 +7,7 @@ import { updateNoteBody } from '../api/api';
 import { showSaved } from '../actions/showPopupActions';
 import { useNavigate } from 'react-router-dom';
 import { setCurrentNote } from '../actions/currentNoteActions';
-import generatePDF from '../utils/toPdf';
+import toTxt from '../utils/toTxt';
 
 function Navigation() {
 
@@ -19,9 +19,9 @@ function Navigation() {
 
   const navigate = useNavigate();
 
-  const handlePdf = () => {
+  const handleTxt = () => {
     if (currentNoteId != '') {
-      generatePDF();
+      toTxt();
     }
   }
 
@@ -68,7 +68,7 @@ function Navigation() {
         <Nav>
           <Navbar.Collapse>
             <Nav.Link>About</Nav.Link>
-            <Nav.Link onClick={handlePdf} >PDF</Nav.Link>
+            <Nav.Link onClick={handleTxt} >Download</Nav.Link>
             <Nav.Link onClick={handleSave} >Save</Nav.Link>
             <Nav.Link onClick={handleClose} >Close</Nav.Link>
           </Navbar.Collapse>

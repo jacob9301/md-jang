@@ -24,7 +24,7 @@ function TextEditor() {
   return (
     <>
         <div className="editor-container">
-            <Form.Control as="textarea" disabled={currentNoteId == '' ? true : false} rows={37} onChange={handleTextChange} value={currentNoteContent} />
+            <Form.Control as="textarea" disabled={currentNoteId == '' ? true : false} rows={30} onChange={handleTextChange} value={currentNoteContent} />
         </div>
         <div id="viewer-container" className="viewer-container" dangerouslySetInnerHTML={{ __html: marked.parse(currentNoteContent) }}></div>
     </>
