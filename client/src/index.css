@@ -14,14 +14,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
-/* do need this ? */
-body{
+body {
   min-height: 100vh;
 }
 
 .notesbar-container {
-  height: 100vh; /* Set the height to 100% of the viewport height */
-  width: 250px; /* Set the width of the navbar container */
+  flex: 1 1 15%;
+  min-height: 93vh;
+   /* Set the width of the navbar container */
   background-color: #f8f9fa;
 }
   
@@ -33,7 +33,7 @@ body{
 
 .viewer-container {
   padding: 10px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .navigation-container {
@@ -52,12 +52,20 @@ body{
   font-weight: bold;
 }
 
-.note-item{
+.note-item {
   padding: 2px 5px;
 }
 
-.note-item:hover{
+.note-item:hover {
   padding: 2px 5px;
   background-color: rgb(224, 224, 224);
   font-weight: bold;
+}
+
+.editor-container {
+  display: flex;
+}
+
+.editor {
+  flex-grow: 1;
 }
