@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser:true, useUnifiedTopolog
 
 app.use(
     cors({
-        origin: 'http://127.0.0.1:5173'
+        origin: 'https://mdjang.onrender.com'
     })
 );
 
