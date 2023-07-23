@@ -2,7 +2,7 @@ import { post, postWithAuth, fetchWithAuth } from "./requests";
 
 export const login = async(user) => {
     try{
-        const url = "http://localhost:5000/login"
+        const url = "http://mdjang.onrender.com/login"
         const response = await post(url, user);
 
         if (!response.ok) {
@@ -23,7 +23,7 @@ export const login = async(user) => {
 
 export const signup = async(user) => {
     try{
-        const url = "http://localhost:5000/signup"
+        const url = "http://mdjang.onrender.com/signup"
         const response = await post(url, user);
 
         if (!response.ok) {
