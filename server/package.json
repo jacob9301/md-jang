@@ -1,12 +1,12 @@
 {
-  "name": "server",
+  "name": "mdjang-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "keywords": [],
   "author": "jacob bushby",
