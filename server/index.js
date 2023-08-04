@@ -9,6 +9,9 @@ const addnote = require('./routes/addnote');
 const getallnotes = require('./routes/getallnotes');
 const getcurrentnote = require('./routes/getcurrentnote');
 const updatenote = require('./routes/updatenote');
+require('dotenv').config();
+
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -20,7 +23,7 @@ app.use(bodyParser.json(), urlencodedParser);
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser:true, useUnifiedTopology:true})
 .then(() => {
     console.log('db connected');
-    app.listen(5000, () => {console.log('server started on port 5000')});
+    app.listen(port, () => {console.log('server started on port 3000')});
 })
 .catch((err) => console.log(err));
 
