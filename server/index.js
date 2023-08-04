@@ -23,7 +23,7 @@ app.use(bodyParser.json(), urlencodedParser);
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser:true, useUnifiedTopology:true})
 .then(() => {
     console.log('db connected');
-    app.listen(port, () => {console.log('server started on port 3000')});
+    app.listen(port, () => {console.log('server started')});
 })
 .catch((err) => console.log(err));
 
