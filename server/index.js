@@ -11,7 +11,7 @@ const getcurrentnote = require('./routes/getcurrentnote');
 const updatenote = require('./routes/updatenote');
 require('dotenv').config();
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 const app = express();
 
@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser:true, useUnifiedTopolog
 
 app.use(
     cors({
-        origin: 'https://mdjang.onrender.com'
+        origin: 'http://localhost:5173'
     })
 );
 

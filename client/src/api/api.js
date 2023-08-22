@@ -2,7 +2,7 @@ import { post, postWithAuth, fetchWithAuth } from "./requests";
 
 export const login = async(user) => {
     try{
-        const url = "https://mdjang-api.onrender.com/login"
+        const url = "http://localhost:3000/login"
         const response = await post(url, user);
 
         if (!response.ok) {
@@ -23,7 +23,7 @@ export const login = async(user) => {
 
 export const signup = async(user) => {
     try{
-        const url = "https://mdjang-api.onrender.com/signup"
+        const url = "http://localhost:3000/signup"
         const response = await post(url, user);
 
         if (!response.ok) {
@@ -44,7 +44,7 @@ export const signup = async(user) => {
 
 export const getAllNotes = async() => {
     try {
-        const url = "https://mdjang-api.onrender.com/getallnotes"
+        const url = "http://localhost:3000/getallnotes"
         const response = await fetchWithAuth(url);
 
         if (!response.ok) {
@@ -64,7 +64,7 @@ export const getAllNotes = async() => {
 export const postNewNote = async(note) => {
 
     try {
-        const url = "https://mdjang-api.onrender.com/addnote";
+        const url = "http://localhost:3000/addnote";
         const response = await postWithAuth(url, note);
 
         if (!response.ok) {
@@ -86,7 +86,7 @@ export const postNewNote = async(note) => {
 export const getCurrentNote = async(noteId) => {
 
     const encodedId = encodeURIComponent(noteId);
-    const url = `https://mdjang-api.onrender.com/getcurrentnote/${encodedId}`;
+    const url = `http://localhost:3000/getcurrentnote/${encodedId}`;
 
     try {
         const response = await fetchWithAuth(url);
@@ -109,7 +109,7 @@ export const getCurrentNote = async(noteId) => {
 export const updateNoteBody = async(note) => {
 
     try {
-        const url = "https://mdjang-api.onrender.com/updatenote";
+        const url = "http://localhost:3000/updatenote";
         const response = await postWithAuth(url, note);
 
         if (!response.ok) {
